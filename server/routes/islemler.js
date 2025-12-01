@@ -51,7 +51,7 @@ export const GetIslemlerWatch = (req, res) => {
     const type = change.operationType;
     const data = change.fullDocument || change.documentKey;
     console.log("operationType",change.operationType);
-    res.write(`data: ${JSON.stringify({ type, data })}\n\n`);
+    res.write(`data: ${JSON.stringify({ type, data,empty:' '.repeat(1024) })}\n\n`);
   });
   res.write(`data: ${JSON.stringify({ time: new Date() })}\n\n`);
   // Cloudflare timeout için ping
