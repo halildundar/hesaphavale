@@ -95,7 +95,6 @@ const makeHesap = (items) => {
     0
   );
   let bakiye = items.reduce((acc, curr) => parseFloat(curr.balance) + acc, 0);
-  console.log(items);
   $(".txt-islem").html(items.length);
   $(".txt-yatan").html(formatTL(yatan));
   $(".txt-cekim").html(formatTL(cekim));
