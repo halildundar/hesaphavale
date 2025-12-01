@@ -1,0 +1,74 @@
+{{>header}}
+<div>
+    <div class="bg-black/5">
+        <div class="max-w-[--max-w] mx-auto ">
+            <div class="py-7 px-5  text-center flex items-center justify-center space-x-5 font-semibold text-[1.4rem]">
+                <button class="text-orange-600 pointer-events-auto ">Kişisel Bilgilerim</button>
+                <span class="tio text-[1.4rem] hidden md:inline-block">remove</span>
+                <a href="/cust/adress" class="text-gray-500  hidden md:inline-block">Adres Bilgilerim</a>
+                <span class="tio text-[1.4rem] hidden md:inline-block">remove</span>
+                <a href="/cust/order" class="text-gray-500  hidden md:inline-block">Siparişlerim</a>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="max-w-[--max-w] mx-auto  py-10  space-y-4 relative">
+            <div class="border border-gray-200  p-2 px-4 w-1/2 mx-auto">
+                <div class="py-2 font-semibold">Genel Bilgiler</div>
+                <hr class="pb-4 border-t border-gray-200">
+                <form class="gnlbilgi grid grid-cols-4 gap-5">
+                    <div class="col-span-2">
+                        <label for="name" class="frm-lbl">Ad <span class="text-red-600">*</span></label>
+                        <input type="text" name="name" id="name" placeholder="Adınız" class="frm-txt" value="{{musteri.name}}">
+                    </div>
+                    <div class="col-span-2">
+                        <label for="surname" class="frm-lbl">Soyad <span class="text-red-600">*</span></label>
+                        <input type="text" name="surname" id="surname" placeholder="Soyadınz" class="frm-txt" value="{{musteri.surname}}">
+                    </div>
+                    <div class="col-span-2">
+                        <label for="email" class="frm-lbl">Email <span class="text-red-600">*</span></label>
+                        <input type="text" name="email" id="email" placeholder="xxx@xxx.xxx" class="frm-txt" value="{{musteri.email}}">
+                    </div>
+                    <div class="col-span-2">
+                        <label for="telefon" class="frm-lbl">Telefon <span class="text-red-600">*</span></label>
+                        <input type="text" name="telefon" id="telefon" placeholder="+90 " class="frm-txt" value="{{musteri.telefon}}">
+                    </div>
+                    <div class="col-span-4 flex items-center">
+                        <input type="checkbox" id="sifre_guncelle" class="w-[1.2rem] h-[1.2rem]">
+                        <label for="sifre_guncelle">Şifre Güncellemek İstiyor musunuz?</label>
+                    </div>
+                    <div style="display: none;" class="passrea col-span-2">
+                        <label for="newpassw1" class="frm-lbl">Şifre<span class="text-red-600">**</span></label>
+                        <div class="relative">
+                            <input type="password" name="newpassw1" id="newpassw1" placeholder="Şifre"
+                                class="frm-txt pasw" value="{{musteri.passw}}">
+                            <button data-cls="newpassw1"
+                                class="btn-pass-sea-toggle tio rounded-full hover:bg-black/10 text-[1.2rem] text-gray-500 p-1 absolute top-1/2 right-1 -translate-y-1/2">password</button>
+                        </div>
+                    </div>
+                    <div style="display: none;" class="passrea col-span-2">
+                        <label for="newpassw2" class="frm-lbl">Şifre(tekrar)<span class="text-red-600">**</span></label>
+                        <div class="relative">
+                            <input type="password" name="newpassw2" id="newpassw2" placeholder="Şifre"
+                                class="frm-txt pasw"  value="{{musteri.passw}}"> 
+                            <button data-cls="newpassw2"
+                                class="btn-pass-sea-toggle tio rounded-full hover:bg-black/10 text-[1.2rem] text-gray-500 p-1 absolute top-1/2 right-1 -translate-y-1/2">password</button>
+                        </div>
+                    </div>
+                </form>
+                <div class="errtxt text-red-500 text-center"></div>
+                <div class="py-4 flex items-center justify-center">
+                    <button
+                        class="btn-save-gnlbilgi  px-4 py-1 bg-blue-600 hover:bg-blue-700 active:bg-blue-400 text-white rounded">
+                        Güncelle
+                    </button>
+                </div>
+            </div>
+            <div style="display: none;" class="spnarea absolute top-0 left-0 w-full h-full bg-white/70 z-[10] flex items-center justify-center">
+                <div class="spin icon-spin-1 spin-steps1 text-[2.4rem] text-orange-600"></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{{>footer}}

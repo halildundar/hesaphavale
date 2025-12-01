@@ -1,0 +1,19 @@
+<div class="{{compclass}} flex-1">
+    <label for="{{key}}" class="frm-lbl">{{label}}</label>
+    <div class="relative">
+        <input type="text" name="{{key}}" id="{{key}}" class="frm-txt !pointer-events-none" placeholder="{{label}}">
+        <div class="absolute top-0 left-0 w-full h-full clickarea z-[1]"></div>
+        <div style="display:none"
+            class="resltarea absolute top-0 left-0 w-full bg-white shadow-[0_0_10px_1px_rgba(0,0,0,0.2)] z-[2]">
+            <input type="text" class="frm-txt srchtxt" placeholder="{{label}} Ara">
+            <div class="text-[0.8rem] min-h-[150px] max-h-[400px] overflow-hidden overflow-y-auto">
+                <div style="display:block;" class="txtsnc text-center py-5 font-bold  text-black/40">Arama yapın</div>
+                <div style="display:none"
+                    class="srchspin text-center py-5 font-bold   flex items-center justify-center">
+                    <div class="spin icon-spin-1 spin-steps1 text-[1.2rem] text-[--m-green]"></div>
+                </div>
+                <div class="srchlist"> </div>
+            </div>
+        </div>
+    </div>
+</div>

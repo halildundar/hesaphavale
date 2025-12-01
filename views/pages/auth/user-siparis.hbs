@@ -1,0 +1,183 @@
+{{>header}}
+<div>
+
+    <div class="bg-black/5">
+        <div class="max-w-[--max-w] mx-auto ">
+            <div class="py-7 px-5  text-center flex items-center justify-center space-x-5 font-semibold text-[1.4rem]">
+                <a href="/cust/info" class="text-gray-500 pointer-events-auto ">Kişisel Bilgilerim</a>
+                <span class="tio text-[1.4rem] hidden md:inline-block">remove</span>
+                <a href="/cust/adress" class="text-gray-500  hidden md:inline-block">Adres Bilgilerim</a>
+                <span class="tio text-[1.4rem] hidden md:inline-block">remove</span>
+                <button class="text-orange-500  hidden md:inline-block">Siparişlerim</a>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="max-w-[--max-w] mx-auto  py-10  space-y-4">
+            {{#each siparisler}}
+            <div class="ate{{id}} p-2 px-4  border border-gray-200 space-y-4 rounded-md shadow-[0_0_7px_1px_rgba(0,0,0,0.1)]">
+                <div class="flex items-center py-5 space-x-5 w-full">
+                    <div>
+                        <strong class="text-[#792525]">SiparişID:</strong>
+                        {{paymentId}}
+                    </div>
+                    <div>
+                        <strong class="text-[#792525]">Durum:</strong>
+                        <span class=" bg-green-600 text-white px-2 py-1 text-[0.9rem] rounded"> {{status}}</span>
+                    </div>
+                    <div>
+                        <strong class="text-[#792525]">Birim:</strong>
+                        {{currency}}
+                    </div>
+                    <div class="flex-1"></div>
+                    <div>
+                        <strong class="text-[#792525]">İşlem Tarih:</strong> {{systemTimeStr}}
+                    </div>
+                </div>
+                <div>
+                    <table class="w-full border-collapse">
+                        <tr class="border-y border-gray-300">
+                            <th class="text-start py-1 px-2">Ürün Adı</th>
+                                  <th class="text-center py-1 px-2">Birim</th>
+                            <th class="text-center py-1 px-2">Adet</th>
+                            <th class="text-end py-1 px-2">Birim Fiyat</th>
+                            <th class="text-center py-1 px-2">İndirim</th>
+                            <th class="text-end py-1 px-2">İnd.Fiyat</th>
+                               <th class="text-center py-1 px-2">KDV</th>
+                            <th class="text-end py-1 px-2">Net</th>
+                        </tr>
+                        {{#each basketItems}}
+
+                        <tr class="border-y border-gray-300">
+                            <td class="py-1 px-2">
+                                <a href="{{this.url}}" target="_blank" class="text-blue-500 hover:underline">{{this.name}}</a>
+                            </td>
+                              <td class="py-1 px-2  text-center">{{this.currency}}</td>
+                            <td class="py-1 px-2 text-center">{{this.adet}}</td>
+                            <td class="py-1 px-2  text-end">{{this.fiyat}}</td>
+                            <td class="py-1 px-2  text-center">%{{this.indirim}}</td>
+                            <td class="py-1 px-2  text-end">{{this.indirimli_fiyat}}</td>
+                               <td class="py-1 px-2  text-center">%{{this.kdv}}</td>
+                            <td class="py-1 px-2  text-end">{{this.price}}</td>
+                        </tr>
+                        {{/each}}
+                        <tr>
+                            <th colspan="6"></th>
+                            <th class="py-1 px-2">Toplam:</th>
+                            <th class="text-end py-1 px-2">{{this.price}}</th>
+                        </tr>
+                    </table>
+                </div>
+                <div class="flex items-center space-x-3" data-ur="{{id}}">
+                    <input type="checkbox" id="chk{{@index}}" class="shwchk w-[1.4rem] h-[1.4rem]" >
+                    <label for="chk{{@index}}" class="frm-lbl">Diğer Bilgiler</label>
+                </div>
+                <div style="display:none" class="adresar grid grid-cols-4 py-4 gap-5">
+                    <div class="col-span-2 p-2 border border-gray-200 rounded">
+                        <div class="pb-4">
+                            <strong class="text-[#792525]">İşlemi Yapan:</strong>
+                        </div>
+                        <div class="flex  space-x-4">
+                            <div>
+                                <div>
+                                    <strong class="text-[#792525]">Ad/Soyad:</strong>
+                                    {{buyer.name}} {{buyer.surname}}
+                                </div>
+                                <div>
+                                    <strong class="text-[#792525]">Telefon:</strong>
+                                    {{buyer.gsmNumber}}
+                                </div>
+                                <div>
+                                    <strong class="text-[#792525]">Email:</strong>
+                                    {{buyer.email}}
+                                </div>
+                                <div>
+                                    <strong class="text-[#792525]">TC:</strong>
+                                    {{buyer.identityNumber}}
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    <strong class="text-[#792525]">Kart Name:</strong>
+                                    {{paymentCard.cardHolderName}}
+                                </div>
+                                <div>
+                                    <strong class="text-[#792525]">Kart no:</strong>
+                                    {{paymentCard.cardNumber}}
+                                </div>
+                                <div>
+                                    <strong class="text-[#792525]">Expire no:</strong>
+                                    {{paymentCard.expireMonth}} / {{paymentCard.expireYear}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-span-2 p-2 border border-gray-200 rounded">
+                        <div>
+                            <div>
+                                <strong class="text-[#792525]">Alıcı(Gönderim) Bilgileri:</strong>
+                            </div>
+                            <div>
+                                <strong class="text-[#792525]">Ad/Soyad:</strong>
+                                {{shippingAddress.contactName}}
+                            </div>
+                             <div>
+                                <strong class="text-[#792525]">TC:</strong>
+                                {{shippingAddress.identityNumber}}
+                            </div>
+                            <div>
+                                <strong class="text-[#792525]">Adres:</strong>
+                                {{shippingAddress.address}}
+                                 <strong class="text-[#792525]">PK:</strong>
+                                {{shippingAddress.zipCode}}
+                            </div>
+                            <div>
+                                <strong class="text-[#792525]">Telefon:</strong>
+                                {{shippingAddress.telefon}} <strong class="text-[#792525]">Email:</strong>
+                                {{shippingAddress.email}}
+                            </div>
+                            
+                        </div>
+                        <hr class="mb-2 border-t border-gray-300">
+                        <div>
+                            <div>
+                                <strong class="text-[#792525]">Fatura Bilgileri:</strong>
+                            </div>
+                            <div>
+                                <strong class="text-[#792525]">Kargo Ad/Soyad:</strong>
+                                {{billingAddress.contactName}}
+                            </div>
+                            <div>
+                                <strong class="text-[#792525]">Adres:</strong>
+                                {{billingAddress.address}}
+                                  <strong class="text-[#792525]">PK:</strong>
+                                {{billingAddress.zipCode}}
+                            </div>
+                           
+                              <div>
+                                <strong class="text-[#792525]">TC:</strong>
+                                {{billingAddress.identityNumber}}
+                            </div>
+                              <div>
+                                <strong class="text-[#792525]">Telefon:</strong>
+                                {{billingAddress.telefon}}  <strong class="text-[#792525]">Email:</strong>
+                                {{billingAddress.email}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{else}}
+            <div class="siparis-yok max-w-[--max-w] mx-auto py-10  min-h-[300px] ">
+                <div class="  text-center font-semibold text-black/30 text-[2rem]">Sipariş Yok</div>
+                {{!-- <div class="text-center text-black/30">
+                    Sipariş numarasına sahipseniz arama yapınız! <br>
+                    Sipariş Numarası sipariş bilgi alanında girmiş olduğunuz mail adresinize gönderilmiştir!
+                </div> --}}
+            </div>
+            {{/each}}
+        </div>
+    </div>
+
+</div>
+{{>footer}}

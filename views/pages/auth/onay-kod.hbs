@@ -1,0 +1,28 @@
+{{>header}}
+
+<div class="max-w-[--max-w] mx-auto flex items-center justify-center py-10">
+    <div
+        class="w-full md:w-[400px] h-auto flex flex-col items-center space-y-4 border border-gray-200 rounded-md shadow-[0_0_10px_1px_rgba(0,0,0,0.2)]   bg-white p-5">
+        <a href="/" class="w-1/2 h-auto">
+            <img src="/assets/logoY.png" alt="">
+        </a>
+        <div class="text-center">
+            <div class="text-orange-500 font-bold text-[1.4rem]">Onay Kodu</div>
+             <div class="text-gray-600 text-[0.8rem] italic ">Epostanıza iletilen kodu giriniz.</div>
+        </div>
+           
+        <form class="w-3/4 flex flex-col space-y-2  ">
+            <div class="w-full">
+                {{!-- <label for="onay_kod" class="frm-lbl">Onay Kodu</label> --}}
+                <input type="text" name="onay_kod" id="onay_kod" placeholder="Onay Kodu" class="frm-txt">
+            </div>
+        </form>
+       
+        <div class="pt-4">
+            <button class="bg-blue-600 hover:bg-blue-700 active:bg-blue-400 text-white px-3 py-1 rounded">Gönder</button>
+        </div>
+        <div class="text-red-600">Hatalı onay kodu</div>
+       
+    </div>
+</div>
+{{>footer}}

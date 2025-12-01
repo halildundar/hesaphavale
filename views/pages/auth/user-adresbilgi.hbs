@@ -1,0 +1,405 @@
+{{>header}}
+<div>
+
+    <div class="bg-black/5">
+        <div class="max-w-[--max-w] mx-auto ">
+            <div class="py-7 px-5  text-center flex items-center justify-center space-x-5 font-semibold text-[1.4rem]">
+                <a href="/cust/info" class="text-gray-500 pointer-events-auto ">Kişisel Bilgilerim</a>
+                <span class="tio text-[1.4rem] hidden md:inline-block">remove</span>
+                <button class="text-orange-500  hidden md:inline-block">Adres Bilgilerim</button>
+                <span class="tio text-[1.4rem] hidden md:inline-block">remove</span>
+                <a href="/cust/order" class="text-gray-500  hidden md:inline-block">Siparişlerim</a>
+            </div>
+        </div>
+    </div>
+    <div class="relative">
+        <div class="max-w-[--max-w] mx-auto  flex space-x-5 py-10  ">
+
+            <div class="border border-gray-200 p-2 px-4  w-1/2 fat-area">
+                <form class="space-y-2  pt-4">
+                    <div class="font-semibold text-[1.2rem] pb-4">Fatura Bilgileri</div>
+                    <div class="flex space-x-2">
+                        <div class="w-1/2">
+                            <label for="isim" class="frm-lbl">İsim*</label>
+                            <input type="text" name="isim" placeholder="isim" class="frm-txt"
+                                value="{{musteri.adres.fatura.isim}}">
+                        </div>
+                        <div class="w-1/2">
+                            <label for="soyisim" class="frm-lbl">Soyisim*</label>
+                            <input type="text" name="soyisim" placeholder="soyisim" class="frm-txt"
+                                value="{{musteri.adres.fatura.soyisim}}">
+                        </div>
+                    </div>
+                    <div class="flex space-x-2">
+                        <div class="w-1/3">
+                            <label for="tc" class="frm-lbl">TC*</label>
+                            <input type="text" name="tc" placeholder="11111111111" class="frm-txt"
+                                value="{{musteri.adres.fatura.tc}}">
+                        </div>
+                        <div class="w-1/3">
+                            <label for="telefon" class="frm-lbl">Telefon*</label>
+                            <input type="text" name="telefon" placeholder="5XXXXXXXXX" class="frm-txt"
+                                value="{{musteri.adres.fatura.telefon}}">
+                        </div>
+                        <div class="w-1/3">
+                            <label for="email" class="frm-lbl">Email*</label>
+                            <input type="text" name="email" placeholder="xxx@xxx.xxx" class="frm-txt"
+                                value="{{musteri.adres.fatura.email}}">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="" class="frm-lbl">Adres</label>
+                        <div class="flex items-center space-x-2 mb-1" >
+                            <select name="il_id" class="frm-slct" data-ur="{{musteri.adres.fatura.il_id}}">
+                                <option value="1">Adana</option>
+                                <option value="2">Adıyaman</option>
+                                <option value="3">Afyonkarahisar</option>
+                                <option value="4">Ağrı</option>
+                                <option value="5">Aksaray</option>
+                                <option value="6">Amasya</option>
+                                <option value="7">Ankara</option>
+                                <option value="8">Antalya</option>
+                                <option value="9">Ardahan</option>
+                                <option value="10">Artvin</option>
+                                <option value="11">Aydın</option>
+                                <option value="12">Balıkesir</option>
+                                <option value="13">Bartın</option>
+                                <option value="14">Batman</option>
+                                <option value="15">Bayburt</option>
+                                <option value="16">Bilecik</option>
+                                <option value="17">Bingöl</option>
+                                <option value="18">Bitlis</option>
+                                <option value="19">Bolu</option>
+                                <option value="20">Burdur</option>
+                                <option value="21">Bursa</option>
+                                <option value="22">Çanakkale</option>
+                                <option value="23">Çankırı</option>
+                                <option value="24">Çorum</option>
+                                <option value="25">Denizli</option>
+                                <option value="26">Diyarbakır</option>
+                                <option value="27">Düzce</option>
+                                <option value="28">Edirne</option>
+                                <option value="29">Elazığ</option>
+                                <option value="30">Erzincan</option>
+                                <option value="31">Erzurum</option>
+                                <option value="32">Eskişehir</option>
+                                <option value="33">Gaziantep</option>
+                                <option value="34">Giresun</option>
+                                <option value="35">Gümüşhane</option>
+                                <option value="36">Hakkari</option>
+                                <option value="37">Hatay</option>
+                                <option value="38">Iğdır</option>
+                                <option value="39">Isparta</option>
+                                <option value="40">İstanbul</option>
+                                <option value="41">İzmir</option>
+                                <option value="42">Kahramanmaraş</option>
+                                <option value="43">Karabük</option>
+                                <option value="44">Karaman</option>
+                                <option value="45">Kars</option>
+                                <option value="46">Kastamonu</option>
+                                <option value="47">Kayseri</option>
+                                <option value="48">Kırıkkale</option>
+                                <option value="49">Kırklareli</option>
+                                <option value="50">Kırşehir</option>
+                                <option value="51">Kilis</option>
+                                <option value="52">Kocaeli</option>
+                                <option value="53">Konya</option>
+                                <option value="54">Kütahya</option>
+                                <option value="55">Malatya</option>
+                                <option value="56">Manisa</option>
+                                <option value="57">Mardin</option>
+                                <option value="58">Mersin</option>
+                                <option value="59">Muğla</option>
+                                <option value="60">Muş</option>
+                                <option value="61">Nevşehir</option>
+                                <option value="62">Niğde</option>
+                                <option value="63">Ordu</option>
+                                <option value="64">Osmaniye</option>
+                                <option value="65">Rize</option>
+                                <option value="66">Sakarya</option>
+                                <option value="67">Samsun</option>
+                                <option value="68">Siirt</option>
+                                <option value="69">Sinop</option>
+                                <option value="70">Sivas</option>
+                                <option value="71">Şanlıurfa</option>
+                                <option value="72">Şırnak</option>
+                                <option value="73">Tekirdağ</option>
+                                <option value="74">Tokat</option>
+                                <option value="75">Trabzon</option>
+                                <option value="76">Tunceli</option>
+                                <option value="77">Uşak</option>
+                                <option value="78">Van</option>
+                                <option value="79">Yalova</option>
+                                <option value="80">Yozgat</option>
+                                <option value="81">Zonguldak</option>
+                            </select>
+                            <select name="ilce_id" class="frm-slct" data-ur="{{musteri.adres.fatura.ilce_id}}">
+                                <option value="1">Aladağ</option>
+                                <option value="2">Ceyhan</option>
+                                <option value="3">Çukurova</option>
+                                <option value="4">Feke</option>
+                                <option value="5">İmamoğlu</option>
+                                <option value="6">Karaisalı</option>
+                                <option value="7">Karataş</option>
+                                <option value="8">Kozan</option>
+                                <option value="9">Pozantı</option>
+                                <option value="10">Saimbeyli</option>
+                                <option value="11">Sarıçam</option>
+                                <option value="12">Seyhan</option>
+                                <option value="13">Tufanbeyli</option>
+                                <option value="14">Yumurtalık</option>
+                                <option value="15">Yüreğir</option>
+                            </select>
+                            <select name="mahalle_id" class="frm-slct" data-ur="{{musteri.adres.fatura.mahalle_id}}">
+                                <option value="1">Akpınar Mah</option>
+                                <option value="2">Başpınar Mah</option>
+                                <option value="3">Mansurlu Mah</option>
+                                <option value="4">Sinanpaşa Mah</option>
+                                <option value="5">Akören Mah</option>
+                                <option value="6">Boztahta Mah</option>
+                                <option value="7">Büyüksofulu Mah</option>
+                                <option value="8">Ceritler Mah</option>
+                                <option value="9">Dailer Mah</option>
+                                <option value="10">Darılık Mah</option>
+                                <option value="11">Dölekli Mah</option>
+                                <option value="12">Ebrişim Mah</option>
+                                <option value="13">Eğner Mah</option>
+                                <option value="14">Gerdibi Mah</option>
+                                <option value="15">Gireğiyeniköy Mah</option>
+                                <option value="16">Gökçeköy Mah</option>
+                                <option value="17">Kabasakal Mah</option>
+                                <option value="18">Karahan Mah</option>
+                                <option value="19">Kıcak Mah</option>
+                                <option value="20">Kışlak Mah</option>
+                                <option value="21">Kızıldam Mah</option>
+                                <option value="22">Kökez Mah</option>
+                                <option value="23">Köprücük Mah</option>
+                                <option value="24">Küp Mah</option>
+                                <option value="25">Madenli Mah</option>
+                                <option value="26">Mazılık Mah</option>
+                                <option value="27">Posyağbasan Mah</option>
+                                <option value="28">Topallı Mah</option>
+                                <option value="29">Uzunkuyu Mah</option>
+                                <option value="30">Yetimli Mah</option>
+                                <option value="31">Yüksekören Mah</option>
+                            </select>
+                        </div>
+                        <div class="text-end text-[0.8rem] py-1">
+                            Posta Kodu: <span class="pk">01720</span>
+                        </div>
+                        <input type="text" class="frm-txt" name="adres" placeholder="Cadde/Bulvar/Sokak/Kapı No..."  value="{{musteri.adres.fatura.adres}}">
+                    </div>
+                    <div>
+                        <label for="aciklama" class="frm-lbl">Açıklama</label>
+                        <textarea class="frm-textarea" name="aciklama" id="aciklama" cols="30"
+                            placeholder="Mesaj Giriniz" >{{musteri.adres.fatura.aciklama}}</textarea>
+                    </div>
+
+                </form>
+                <button
+                    class="btn-copy-data  px-4 py-1 bg-blue-600 hover:bg-blue-700 active:bg-blue-400 text-white rounded">
+                    Fatura bilgilerimi adres bilgilerine kopyala
+                </button>
+                <div class="errtxt text-center text-red-600 py-2"></div>
+            </div>
+            <div class="border border-gray-200 p-2 px-4 w-1/2 kar-area">
+                <form style="display: block;" class="space-y-2 pt-4  ">
+                    <div class="font-semibold text-[1.2rem] pb-4">Adres(Gönderim) Bilgileri</div>
+                    <div class="flex space-x-2">
+                        <div class="w-1/2">
+                            <label for="isim" class="frm-lbl">İsim*</label>
+                            <input type="text" name="isim" placeholder="isim" class="frm-txt"
+                                value="{{musteri.adres.kargo.isim}}">
+                        </div>
+                        <div class="w-1/2">
+                            <label for="soyisim" class="frm-lbl">Soyisim*</label>
+                            <input type="text" name="soyisim" placeholder="soyisim" class="frm-txt"
+                                value="{{musteri.adres.kargo.soyisim}}">
+                        </div>
+                    </div>
+                    <div class="flex space-x-2">
+                        <div class="w-1/3">
+                            <label for="tc" class="frm-lbl">TC*</label>
+                            <input type="text" name="tc" placeholder="11 haneli" class="frm-txt"
+                                value="{{musteri.adres.kargo.tc}}">
+                        </div>
+                        <div class="w-1/3">
+                            <label for="telefon" class="frm-lbl">Telefon*</label>
+                            <input type="text" name="telefon" placeholder="+90XXXXXXXXXX" class="frm-txt"
+                                value="{{musteri.adres.kargo.telefon}}">
+                        </div>
+                        <div class="w-1/3">
+                            <label for="email" class="frm-lbl">Email*</label>
+                            <input type="text" name="email" placeholder="xxx@xxx.xxx" class="frm-txt"
+                                value="{{musteri.adres.kargo.email}}">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="" class="frm-lbl">Adres</label>
+                        <div class="flex items-center space-x-2 mb-1">
+                            <select name="il_id" class="frm-slct" data-ur="{{musteri.adres.kargo.il_id}}">
+                                <option value="1">Adana</option>
+                                <option value="2">Adıyaman</option>
+                                <option value="3">Afyonkarahisar</option>
+                                <option value="4">Ağrı</option>
+                                <option value="5">Aksaray</option>
+                                <option value="6">Amasya</option>
+                                <option value="7">Ankara</option>
+                                <option value="8">Antalya</option>
+                                <option value="9">Ardahan</option>
+                                <option value="10">Artvin</option>
+                                <option value="11">Aydın</option>
+                                <option value="12">Balıkesir</option>
+                                <option value="13">Bartın</option>
+                                <option value="14">Batman</option>
+                                <option value="15">Bayburt</option>
+                                <option value="16">Bilecik</option>
+                                <option value="17">Bingöl</option>
+                                <option value="18">Bitlis</option>
+                                <option value="19">Bolu</option>
+                                <option value="20">Burdur</option>
+                                <option value="21">Bursa</option>
+                                <option value="22">Çanakkale</option>
+                                <option value="23">Çankırı</option>
+                                <option value="24">Çorum</option>
+                                <option value="25">Denizli</option>
+                                <option value="26">Diyarbakır</option>
+                                <option value="27">Düzce</option>
+                                <option value="28">Edirne</option>
+                                <option value="29">Elazığ</option>
+                                <option value="30">Erzincan</option>
+                                <option value="31">Erzurum</option>
+                                <option value="32">Eskişehir</option>
+                                <option value="33">Gaziantep</option>
+                                <option value="34">Giresun</option>
+                                <option value="35">Gümüşhane</option>
+                                <option value="36">Hakkari</option>
+                                <option value="37">Hatay</option>
+                                <option value="38">Iğdır</option>
+                                <option value="39">Isparta</option>
+                                <option value="40">İstanbul</option>
+                                <option value="41">İzmir</option>
+                                <option value="42">Kahramanmaraş</option>
+                                <option value="43">Karabük</option>
+                                <option value="44">Karaman</option>
+                                <option value="45">Kars</option>
+                                <option value="46">Kastamonu</option>
+                                <option value="47">Kayseri</option>
+                                <option value="48">Kırıkkale</option>
+                                <option value="49">Kırklareli</option>
+                                <option value="50">Kırşehir</option>
+                                <option value="51">Kilis</option>
+                                <option value="52">Kocaeli</option>
+                                <option value="53">Konya</option>
+                                <option value="54">Kütahya</option>
+                                <option value="55">Malatya</option>
+                                <option value="56">Manisa</option>
+                                <option value="57">Mardin</option>
+                                <option value="58">Mersin</option>
+                                <option value="59">Muğla</option>
+                                <option value="60">Muş</option>
+                                <option value="61">Nevşehir</option>
+                                <option value="62">Niğde</option>
+                                <option value="63">Ordu</option>
+                                <option value="64">Osmaniye</option>
+                                <option value="65">Rize</option>
+                                <option value="66">Sakarya</option>
+                                <option value="67">Samsun</option>
+                                <option value="68">Siirt</option>
+                                <option value="69">Sinop</option>
+                                <option value="70">Sivas</option>
+                                <option value="71">Şanlıurfa</option>
+                                <option value="72">Şırnak</option>
+                                <option value="73">Tekirdağ</option>
+                                <option value="74">Tokat</option>
+                                <option value="75">Trabzon</option>
+                                <option value="76">Tunceli</option>
+                                <option value="77">Uşak</option>
+                                <option value="78">Van</option>
+                                <option value="79">Yalova</option>
+                                <option value="80">Yozgat</option>
+                                <option value="81">Zonguldak</option>
+                            </select>
+                            <select name="ilce_id" class="frm-slct" data-ur="{{musteri.adres.kargo.ilce_id}}">
+                                <option value="380">Araban</option>
+                                <option value="381">İslahiye</option>
+                                <option value="382">Karkamış</option>
+                                <option value="383">Nizip</option>
+                                <option value="384">Nurdağı</option>
+                                <option value="385">Oğuzeli</option>
+                                <option value="386">Şahinbey</option>
+                                <option value="387">Şehitkamil</option>
+                                <option value="388">Yavuzeli</option>
+                            </select>
+                            <select name="mahalle_id" class="frm-slct" data-ur="{{musteri.adres.kargo.mahalle_id}}">
+                                <option value="28912">Akçaköy Mah</option>
+                                <option value="28913">Alaçalı Mah</option>
+                                <option value="28914">Alagöz Mah</option>
+                                <option value="28915">Arıkdere Mah</option>
+                                <option value="28916">Ayyıldız Mah</option>
+                                <option value="28917">Balaban Mah</option>
+                                <option value="28918">Beşkılıç Mah</option>
+                                <option value="28919">Çarşı Mah</option>
+                                <option value="28920">Çiftlik Mah</option>
+                                <option value="28921">Eceler Mah</option>
+                                <option value="28922">Elifoğlu Mah</option>
+                                <option value="28923">Erenyolu Mah</option>
+                                <option value="28924">Etiler Mah</option>
+                                <option value="28925">Gürçay Mah</option>
+                                <option value="28926">Karacurun Mah</option>
+                                <option value="28927">Karanfil Mah</option>
+                                <option value="28928">Karşıyaka Mah</option>
+                                <option value="28929">Kelekli Mah</option>
+                                <option value="28930">Kepirler Mah</option>
+                                <option value="28931">Kıvırcık Mah</option>
+                                <option value="28932">Korkmazlar Mah</option>
+                                <option value="28933">Kuruyazı Mah</option>
+                                <option value="28934">Lojmanlar Mah</option>
+                                <option value="28935">Öncüler Mah</option>
+                                <option value="28936">Örmetaş Mah</option>
+                                <option value="28937">Savaş Mah</option>
+                                <option value="28938">Soylu Mah</option>
+                                <option value="28939">Subağı Mah</option>
+                                <option value="28940">Şenlik Mah</option>
+                                <option value="28941">Teketaşı Mah</option>
+                                <option value="28942">Tosunlu Mah</option>
+                                <option value="28943">Türkyurdu Mah</option>
+                                <option value="28944">Yarımca Mah</option>
+                                <option value="28945">Yaşar Mah</option>
+                                <option value="28946">Yazır Mah</option>
+                                <option value="28947">Yeşerti Mah</option>
+                                <option value="28948">Yolağzı Mah</option>
+                                <option value="28949">Yurtbağı Mah</option>
+                                <option value="28950">Zührecik Mah</option>
+                            </select>
+                        </div>
+                        <div class="text-end text-[0.8rem] py-1">
+                            Posta Kodu: <span class="pk">27880</span>
+                        </div>
+                        <input type="text" class="frm-txt" name="adres" placeholder="Cadde/Bulvar/Sokak/Kapı No..."  value="{{musteri.adres.kargo.adres}}">
+                    </div>
+                    <div>
+                        <label for="aciklama" class="frm-lbl">Açıklama</label>
+                        <textarea class="frm-textarea" name="aciklama" id="aciklama" cols="30"
+                            placeholder="Mesaj Giriniz" >{{musteri.adres.kargo.aciklama}}</textarea>
+                    </div>
+                </form>
+                <div class="errtxt text-center text-red-600 py-2"></div>
+            </div>
+        </div>
+
+        <div class="py-4 flex items-center justify-center">
+            <button
+                class="btn-save-adresdata  px-4 py-1 bg-blue-600 hover:bg-blue-700 active:bg-blue-400 text-white rounded">
+                Kaydet
+            </button>
+        </div>
+
+        <div style="display: none;"
+            class="spnarea absolute top-0 left-0 w-full h-full bg-white/70 z-[10] flex items-center justify-center">
+            <div class="spin icon-spin-1 spin-steps1 text-[2.4rem] text-orange-600"></div>
+        </div>
+    </div>
+
+</div>
+{{>footer}}

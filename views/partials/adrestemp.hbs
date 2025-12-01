@@ -1,0 +1,23 @@
+<div class="{{adresformclass}} grid grid-cols-3 gap-2 ">
+    <div class="col-span-1">
+        <label for="il" class="frm-lbl">İl</label>
+        <select name="il" id="il" class="frm-slct"></select>
+    </div>
+    <div class="col-span-1">
+        <label for="ilce"  class="frm-lbl">İlçe</label>
+        <select name="ilce" id="ilce" class="frm-slct"></select>
+    </div>
+    <div class="col-span-1">
+        <label for="mahalle"  class="frm-lbl">Mahalle</label>
+        <select name="mahalle" id="mahalle"  class="frm-slct"></select>
+    </div>
+    <div class="col-span-3">
+        <div class="flex items-center">
+            <label for="adres" class="frm-lbl">Cad/Sok/Apt/No</label>
+            <div class="flex-1"></div>
+             <div class="text-end text-[0.8rem]">PK: <span class="pk"></span></div>
+             <input type="hidden" name="pk">
+        </div>
+        <input type="text" class="frm-txt" name="adres" id="adres" placeholder="Cad/Sok/Apt/No" required>
+    </div>
+</div>

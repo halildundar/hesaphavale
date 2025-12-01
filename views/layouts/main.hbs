@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    {{!--
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> --}}
+
+    <meta name="viewport" content=" user-scalable=no">
+    {{!--
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" /> --}}
+    <meta robots="noindex,noreferer">
+    <title>{{title}}</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/{{scriptname}}.css">
+    {{{styles}}}
+</head>
+
+<body >
+    {{>sidebar}}
+    <div class="relative left-[256px] w-[calc(100%-256px)]">
+        {{{body}}}
+    </div>
+  
+
+    <script defer src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    {{{scripts}}}
+    <script defer src="/{{scriptname}}.js"></script>
+
+</body>
+
+</html>

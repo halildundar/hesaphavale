@@ -1,0 +1,32 @@
+.ctrlpanel {
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  .sidebarscr {
+    ::-webkit-scrollbar {
+      width: 7px; //Needed scrollbar thumb width to be 7px, so had to define whole scrollbar to be 7px wide.
+      height: 7px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: brown;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: black;
+      border-left: 3px solid transparent;
+      border-right: 3px solid transparent;
+      background-clip: padding-box;
+    }
+    ::-webkit-scrollbar-track:horizontal{
+      background: black;
+      border-top: 3px solid transparent;
+      border-bottom: 3px solid transparent;
+      background-clip: padding-box;
+    }
+  }
+  .panel{
+    @apply border border-gray-200 rounded bg-white shadow-md
+  }
+}

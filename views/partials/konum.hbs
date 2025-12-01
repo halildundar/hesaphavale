@@ -1,0 +1,19 @@
+<div style="display:none"
+    class="{{mapclass}} fixed top-0 left-0 w-[100vw] h-[100vh] flex items-center justify-center bg-black/10 z-[90]">
+    <div
+        class="grid grid-cols-12 gap-2 border border-gray-200 bg-white rounded py-4 w-[80%] px-7 shadow-[0_0_10px_1px_rgba(0,0,0,0.2)]">
+        <div class="col-span-12 flex items-center justify-between">
+            <div class="panel-title">Haritada Mesafe Ölçme</div>
+            <button class="btn-close rounded-full hover:bg-black/10 bg-black/5 p-1 text-[1.2rem] tio">
+                clear
+            </button>
+        </div>
+        <div class="col-span-12">
+            <div class="flex items-center justify-between">
+                <div>Haritadan 2 nokta seç ve mesafeyi ölç. </div>
+                <div class="distance font-semibold"></div>
+            </div>
+            <div class="map cursor-default" style="width:{{genislik}};height:{{yukseklik}}"></div>
+        </div>
+    </div>
+</div>

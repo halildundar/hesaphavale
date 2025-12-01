@@ -1,0 +1,30 @@
+[
+    {
+        "il":"ADANA",
+        "komsular":["ADANA","KAHRAMANMARAŞ","KAYSERİ","MERSİN","NİĞDE","OSMANİYE"]
+    },
+    {
+        "il":"ADIYAMAN",
+        "komsular":["ADIYAMAN","DİYARBAKIR","GAZİANTEP","KAHRAMANMARAŞ","MALATYA","ŞANLIURFA"]
+    },
+    {
+        "il":"AFYON",
+        "komsular":["AFYON","BURDUR","DENİZLİ","ESKİŞEHİR","ISPARTA","KONYA","KÜTAHYA","UŞAK"]
+    },
+    {
+        "il":"AĞRI",
+        "komsular":["AĞRI","BİTLİS","ERZURUM","IĞDIR","KARS","MUŞ","VAN"]
+    },
+    {
+        "il":"AMASYA",
+        "komsular":["AMASYA","ÇORUM","SAMSUN","TOKAT","YOZGAT"]
+    },
+    {
+        "il":"ANKARA",
+        "komsular":["ANKARA","ÇANKIRI","KIRIKKALE","KIRŞEHİR","AKSARAY","KONYA","ESKİŞEHİR","BOLU"]
+    },
+    {
+        "il":"ANTALYA", 
+        "komsular":["ANTALYA","BURDUR","ISPARTA","KARAMAN","KONYA","MERSİN","MUĞLA"]
+    }
+]
