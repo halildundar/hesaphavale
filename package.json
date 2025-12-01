@@ -7,7 +7,7 @@
     "serve": "concurrently \"webpack -w\" \"nodemon main.js -e js,hbs,json\"",
     "dev": "concurrently \"webpack -w\" \"node --watch main.js\"",
     "build": "webpack",
-    "start": "node server.js"
+    "start": "node main.js"
   },
   "keywords": [],
   "author": "",
