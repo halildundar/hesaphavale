@@ -2,8 +2,8 @@ import { MongoClient, ObjectId } from "mongodb";
 import { getDateRange } from "./genel/timeIslemler.js";
 import {BehaviorSubject,fromEventPattern} from "rxjs";
 import {switchMap} from "rxjs/operators";
-const uri = "mongodb://127.0.0.1:27017/?directConnection=true";
-// const uri = "mongodb://127.0.0.1:27017/?replicaSet=rs0&readPreference=primary";
+// const uri = "mongodb://127.0.0.1:27017/?directConnection=true";
+const uri = "mongodb://127.0.0.1:27017/?replicaSet=rs0&readPreference=primary";
 const client = new MongoClient(uri);
 
 /**
