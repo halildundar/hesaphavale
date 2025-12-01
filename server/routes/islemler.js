@@ -37,6 +37,7 @@ export const GetIslemlerWatch = (req, res) => {
   res.setHeader("Connection", "keep-alive");
   res.setHeader("Content-Encoding", "none");
   res.setHeader('X-Accel-Buffering', 'no');
+  res.setHeader( 'Access-Control-Allow-Origin','*');
 
   let rangeType = req.query.range || "yesterday";
   let endDate = req.query.isendtime;
@@ -51,10 +52,14 @@ export const GetIslemlerWatch = (req, res) => {
     const data = change.fullDocument || change.documentKey;
     res.write(`data: ${JSON.stringify({ type, data })}\n\n`);
   });
+  res.write('\n');
+  // Cloudflare timeout için ping
+    const ping = setInterval(() => res.write(':\n\n'), 40000);
 
   // Client disconnect
   req.on("close", () => {
     subscription.unsubscribe();
+    clearInterval(ping);
     console.log("❌ SSE client disconnected");
   });
 };
