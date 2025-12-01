@@ -37,7 +37,7 @@ export const GetIslemlerWatch = (req, res) => {
   res.setHeader("Connection", "keep-alive");
   res.setHeader("Content-Encoding", "none");
   res.setHeader('X-Accel-Buffering', 'no');
-  res.setHeader( 'Access-Control-Allow-Origin','*');
+  res.setHeader('Access-Control-Allow-Origin','*');
   res.flushHeaders(); 
   let rangeType = req.query.range || "yesterday";
   let endDate = req.query.isendtime;
@@ -50,6 +50,7 @@ export const GetIslemlerWatch = (req, res) => {
   const subscription = mongoWatch.watch().subscribe((change) => {
     const type = change.operationType;
     const data = change.fullDocument || change.documentKey;
+    console.log("operationType",change.operationType);
     res.write(`data: ${JSON.stringify({ type, data })}\n\n`);
   });
   res.write(`data: ${JSON.stringify({ time: new Date() })}\n\n`);
