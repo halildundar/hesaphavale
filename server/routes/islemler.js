@@ -38,7 +38,7 @@ export const GetIslemlerWatch = (req, res) => {
   res.setHeader("Content-Encoding", "none");
   res.setHeader('X-Accel-Buffering', 'no');
   res.setHeader( 'Access-Control-Allow-Origin','*');
-
+  res.flushHeaders(); 
   let rangeType = req.query.range || "yesterday";
   let endDate = req.query.isendtime;
   if (!rangeType) return res.status(400).send("Missing range param");
