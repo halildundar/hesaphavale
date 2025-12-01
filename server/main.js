@@ -41,14 +41,14 @@ app.engine(
   engine({
     defaultLayout: "main",
     extname: ".hbs",
-    layoutsDir: process.cwd() + "/views/layouts",
-    partialsDir: [process.cwd() + "/views/partials"],
+    layoutsDir: "views/layouts",
+    partialsDir: ["views/partials"],
     helpers: { calc, list, IsEq, BiggerThan, LessThan, Inc, Json, DigitFract },
   })
 );
 app.set("view engine", ".hbs");
 app.set("views", `${process.cwd()}/views`);
-
+console.log(process.cwd())
 app.use(express.static("dist"));
 app.use(
   bodyParser.urlencoded({
