@@ -133,6 +133,7 @@ const GetIslemlerWatch = async (range = "today", isendtime = true) => {
       );
       itemsEvent$.subscribe((result) => {
         const { type, data } = result;
+        console.log(result);
         if (pagename === "islemler") {
           items = IslemlerPage(items, { type, data });
         }
