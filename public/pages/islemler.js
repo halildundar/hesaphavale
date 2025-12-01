@@ -71,6 +71,7 @@ const InitTable = (islemler) => {
     </div>
 </div>`);
   $(".mytable table tbody").html("");
+  console.log(islemler);
   for (let i = islemler.length - 1; i >= 0; i--) {
     const islem = islemler[i];
     AppendTableRow(islem);
