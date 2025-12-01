@@ -11,8 +11,8 @@ import {
   Inc,
   Json,
   DigitFract,
-} from "./genel/helpers.js";
-import {MainRoutes} from "./routes.js";
+} from "./server/genel/helpers.js";
+import {MainRoutes} from "./server/routes.js";
 import bodyParser from "body-parser";
 import methodOverride from "method-override";
 import cookieParser from "cookie-parser";
