@@ -36,8 +36,8 @@ export const GetIslemlerWatch = (req, res) => {
   res.setHeader("Cache-Control", "no-cache");
   res.setHeader("Connection", "keep-alive");
   res.setHeader("Content-Encoding", "none");
-  res.setHeader('X-Accel-Buffering', 'no');
-  res.setHeader('Access-Control-Allow-Origin','*');
+  // res.setHeader('X-Accel-Buffering', 'no');
+  // res.setHeader('Access-Control-Allow-Origin','*');
   res.flushHeaders(); 
   let rangeType = req.query.range || "yesterday";
   let endDate = req.query.isendtime;
