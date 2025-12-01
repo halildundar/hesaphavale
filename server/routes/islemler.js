@@ -52,9 +52,9 @@ export const GetIslemlerWatch = (req, res) => {
     const data = change.fullDocument || change.documentKey;
     res.write(`data: ${JSON.stringify({ type, data })}\n\n`);
   });
-  res.write('\n');
+  res.write(`data: ${JSON.stringify({ time: new Date() })}\n\n`);
   // Cloudflare timeout için ping
-    const ping = setInterval(() => res.write(':\n\n'), 15000);
+    const ping = setInterval(() => res.write(`data: ${JSON.stringify({ time: new Date() })}\n\n`), 15000);
 
   // Client disconnect
   req.on("close", () => {
