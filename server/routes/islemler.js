@@ -53,9 +53,8 @@ export const GetIslemlerWatch = (req, res) => {
     console.log("operationType",change.operationType);
     res.write(`data: ${JSON.stringify({ type, data,empty:' '.repeat(1024) })}\n\n`);
   });
-  res.write(`data: ${JSON.stringify({ time: new Date(),empty:' '.repeat(1024) })}\n\n`);
   // Cloudflare timeout için ping
-    const ping = setInterval(() => res.write(`data: ${JSON.stringify({ time: new Date(),empty:' '.repeat(1024) })}\n\n`), 15000);
+  const ping = setInterval(() => res.write(`data: ${JSON.stringify({ time: new Date(),empty:' '.repeat(1024) })}\n\n`), 15000);
   // Client disconnect
   req.on("close", () => {
     subscription.unsubscribe();
