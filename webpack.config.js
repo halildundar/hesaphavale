@@ -8,7 +8,7 @@ import { config } from "dotenv";
 let time = new Date().getTime();
 process.env.WEBSCRIPTNAME = `main${time}`;
 process.env.CTRLPANELSCRIPTNAME = `ctrlpanel${time}`;
-writeFileSync("./const.env",`NODE_ENV=development\nWEBSCRIPTNAME=main${time}\nCTRLPANELSCRIPTNAME=ctrlpanel${time}`,{encoding:'utf-8'})
+writeFileSync("./const.env",`NODE_ENV=production\nWEBSCRIPTNAME=main${time}\nCTRLPANELSCRIPTNAME=ctrlpanel${time}`,{encoding:'utf-8'})
 config({ path: "./const.env" });
 console.log(process.env.NODE_ENV);
 export default {
