@@ -41,8 +41,8 @@ app.engine(
   engine({
     defaultLayout: "main",
     extname: ".hbs",
-    layoutsDir: "views/layouts",
-    partialsDir: ["views/partials"],
+    layoutsDir: process.cwd() + "/views/layouts",
+    partialsDir: [process.cwd() + "/views/partials"],
     helpers: { calc, list, IsEq, BiggerThan, LessThan, Inc, Json, DigitFract },
   })
 );
