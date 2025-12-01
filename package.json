@@ -1,11 +1,11 @@
 {
   "name": "hesaphavale",
   "version": "1.0.0",
-  "main": "server/main.js",
+  "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "concurrently \"webpack -w\" \"nodemon server/main.js -e js,hbs,json\"",
-    "dev": "concurrently \"webpack -w\" \"node --watch server/main.js\"",
+    "serve": "concurrently \"webpack -w\" \"nodemon main.js -e js,hbs,json\"",
+    "dev": "concurrently \"webpack -w\" \"node --watch main.js\"",
     "build": "webpack",
     "start": "node server.js"
   },
