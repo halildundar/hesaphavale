@@ -54,12 +54,13 @@ export const GetIslemlerWatch = (req, res) => {
   });
   res.write('\n');
   // Cloudflare timeout için ping
-    const ping = setInterval(() => res.write(':\n\n'), 40000);
+    const ping = setInterval(() => res.write(':\n\n'), 15000);
 
   // Client disconnect
   req.on("close", () => {
     subscription.unsubscribe();
     clearInterval(ping);
+    res.end();
     console.log("❌ SSE client disconnected");
   });
 };
