@@ -1,6 +1,6 @@
 import { CRUD, ObjectID } from "../db.js";
 import { combineLatest, fromEvent, switchMap, of } from "rxjs";
-import { HandlebarsScript, RxjsScript,XLSXScript } from "../genel/consts.js";
+import { HandlebarsScript, RxjsScript, XLSXScript } from "../genel/consts.js";
 import { MongoWatchService } from "../db.js";
 import { getDateRange } from "../genel/timeIslemler.js";
 export const IslemlerPage = (req, res) => {
@@ -8,7 +8,7 @@ export const IslemlerPage = (req, res) => {
     title: "İşlemler | Hesap Havale",
     scriptname: process.env.WEBSCRIPTNAME,
     scripts: HandlebarsScript + RxjsScript + XLSXScript,
-    route: "/islemler"
+    route: "/islemler",
   });
 };
 export const GetIslemlerList = async (req, res) => {
@@ -24,9 +24,13 @@ export const GetIslemlerList = async (req, res) => {
   if (!!endDate) {
     filter["$lte"] = range.trEndNoOffset;
   }
-  const datas = await db.find({
-    activityDateTime: filter,
-  },{},{activityDateTime:-1});
+  const datas = await db.find(
+    {
+      activityDateTime: filter,
+    },
+    {},
+    { activityDateTime: -1 }
+  );
   return res.json(datas);
 };
 
@@ -36,10 +40,11 @@ export const GetIslemlerWatch = (req, res) => {
   res.setHeader("Cache-Control", "no-cache,no-transform");
   res.setHeader("Connection", "keep-alive");
   res.setHeader("Content-Encoding", "identity");
-  res.setHeader('X-Accel-Buffering', 'no');
+  res.setHeader("X-Accel-Buffering", "no");
   // res.setHeader('Access-Control-Allow-Origin','*');
-  res.flushHeaders(); 
-  res.write("event: ping\ndata: start\n\n");
+  res.flushHeaders();
+  res.write("event: ping\n");
+  res.write("data: start\n\n");
   res.flush();
   let rangeType = req.query.range || "today";
   let endDate = req.query.isendtime;
@@ -52,13 +57,13 @@ export const GetIslemlerWatch = (req, res) => {
   const subscription = mongoWatch.watch().subscribe((change) => {
     const type = change.operationType;
     const data = change.fullDocument || change.documentKey;
-    console.log("operationType",change.operationType);
-    res.write(`data: ${JSON.stringify({ type, data})}\n\n`);
+    console.log("operationType", change.operationType);
+    res.write(`data: ${JSON.stringify({ type, data })}\n\n`);
     res.flush();
   });
   // Cloudflare timeout için ping
   const ping = setInterval(() => {
-    res.write(`data: ${JSON.stringify({ time: new Date()})}\n\n`);
+    res.write(`data: ${JSON.stringify({ time: new Date() })}\n\n`);
     res.flush();
   }, 15000);
   // Client disconnect
