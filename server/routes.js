@@ -4,7 +4,7 @@ import { fromEvent } from "rxjs";
 import { HandlebarsScript, RxjsScript } from "./genel/consts.js";
 import { readFile } from "node:fs/promises";
 import { DashboardPage } from "./routes/dashboard.js";
-import { KasalarPage } from "./routes/kasalar.js";
+import { GetKasalar, KasalarPage } from "./routes/kasalar.js";
 import {
   IslemlerPage,
   GetIslemlerWatch,
@@ -12,6 +12,7 @@ import {
 } from "./routes/islemler.js";
 export const MainRoutes = (app) => {
   app.use("/kasalar", KasalarPage);
+  app.use("/api/get-total", GetKasalar);
   app.use("/islemler", IslemlerPage);
   app.use("/api/get-islemler-list", GetIslemlerList);
   app.use("/api/get-islemler-watch", GetIslemlerWatch);

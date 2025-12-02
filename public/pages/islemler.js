@@ -52,7 +52,7 @@ const AppendTableRow = (data) => {
 const InitTable = (islemler) => {
   const popStrRand =
     Handlebars.compile(`<div class="popveri fixed top-0 left-0 right-0 bottom-0 bg-black/10 flex items-center justify-center z-[51]">
-    <div class="bg-white rounded-md shadow-[0_0_10px_2px_rgba(0,0,0,0.2)] w-1/3 h-[90%] flex flex-col">
+    <div class="bg-white rounded-md shadow-[0_0_10px_2px_rgba(0,0,0,0.2)] w-1/3 h-[85%] flex flex-col">
         <div class="pl-3 pr-2 py-1 flex items-center justify-between">
             <div class="text-[1.2rem] font-medium">Veri</div>
             <button class="btn-popvericls text-[1.2rem] bg-black/5 hover:bg-black/10 rounded-full p-2 tio">clear</button>
@@ -79,6 +79,25 @@ const InitTable = (islemler) => {
   $(".mytable table tbody tr").on("click", function () {
     let _id = $(this).attr("data-ur");
     let findedIslem = islemler.find((a) => a._id === _id);
+    console.log(findedIslem);
+    findedIslem = {
+      "Ref ID": findedIslem.subReferenceKey,
+       "TrXId": findedIslem.otherTrxId,
+      "Talep Tarih": DateActivityToTableTime(findedIslem.sentDateTime),
+      "Onay Tarih": DateActivityToTableTime(findedIslem.activityDateTime),
+      Tedarikçi: findedIslem.accountBankName,
+      "Hesap Iban": findedIslem.accountIban,
+      Açıklama: findedIslem.adminDescription,
+      "Onay Ver.": findedIslem.approvedName,
+      Yatan: "₺" + findedIslem.depositAmount,
+      Çekim: "₺" + findedIslem.withdrawAmount,
+      Bakiye: "₺" + findedIslem.balance,
+      Komisyon: findedIslem.feeAmount + `(%${findedIslem.feeRate})`,
+      "User Name": findedIslem.ownerUserName,
+      "User No": findedIslem.ownerUserNo,
+      "Gönd.Açıklama": findedIslem.senderDescription
+     
+    };
     $("body").append(popStrRand({ veri: findedIslem }));
     $(".popveri .btn-popvericls").on("click", function () {
       $(".popveri").remove();
@@ -203,8 +222,6 @@ const GetIslemlerWatch = async (range = "today", isendtime = true) => {
     // 4. Dosyayı indir
     XLSX.writeFile(wb, "rapor.xlsx");
   });
-  // await initWatch("today", true);
-  // $(`.btn[data-ur='${range}']`).trigger("click")
   $(`.btn[data-ur='${range}']`).trigger("click");
   window.addEventListener("beforeunload", () => {
     if (eventSource) eventSource.close();
@@ -216,6 +233,7 @@ const GetIslemlerList = async (range = "today", isendtime = true) => {
     type: "GET",
     url: relurl,
     dataType: "json",
+    headers: { "x-my-custom-header": "some value" },
   });
   return result;
 };

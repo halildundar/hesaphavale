@@ -12,6 +12,7 @@ export const IslemlerPage = (req, res) => {
   });
 };
 export const GetIslemlerList = async (req, res) => {
+  console.log(req.headers);
   let db = CRUD("hesaphavale", "islemler");
   let rangeType = req.query.range || "yesterday";
   let endDate = req.query.isendtime;
@@ -33,7 +34,6 @@ export const GetIslemlerList = async (req, res) => {
   );
   return res.json(datas);
 };
-
 export const GetIslemlerWatch = (req, res) => {
   // SSE headers
   res.setHeader("Content-Type", "text/event-stream");
@@ -46,6 +46,7 @@ export const GetIslemlerWatch = (req, res) => {
   res.write("event: ping\n");
   res.write("data: start\n\n");
   res.flush();
+
   let rangeType = req.query.range || "today";
   let endDate = req.query.isendtime;
   if (!rangeType) return res.status(400).send("Missing range param");

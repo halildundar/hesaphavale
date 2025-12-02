@@ -8,6 +8,7 @@ import MuayenelerInit from "./pages/muayeneler.js";
 import VeriInit from "./pages/veri.js";
 import DashboardInit from "./pages/dashboard.js";
 import IslemlerInit from "./pages/islemler.js";
+import KasalarInit from "./pages/kasalar.js";
 export const HOST_NAME = location.origin; //"http://localhost:3000";
 // export const HOST_NAME = "http://localhost:3000" //"https://crazy-noyce.89-250-72-218.plesk.page";
 Handlebars.registerHelper("inc", function (value, options) {
@@ -110,7 +111,9 @@ $(async function () {
     // }
   } else if (pathname === "/islemler") {
     IslemlerInit();
-  } else if (pathname === "/ctrlpanel/personel") {
+  } else if (pathname === "/kasalar") {
+    KasalarInit();
+  }  else if (pathname === "/ctrlpanel/personel") {
     PersonelInit();
   } else if (pathname === "/ctrlpanel/muayeneler") {
     MuayenelerInit();
