@@ -33,10 +33,10 @@ export const GetIslemlerList = async (req, res) => {
 export const GetIslemlerWatch = (req, res) => {
   // SSE headers
   res.setHeader("Content-Type", "text/event-stream");
-  res.setHeader("Cache-Control", "no-cache,no-translate");
+  res.setHeader("Cache-Control", "no-cache,no-transform");
   res.setHeader("Connection", "keep-alive");
   res.setHeader("Content-Encoding", "none");
-  // res.setHeader('X-Accel-Buffering', 'no');
+  res.setHeader('X-Accel-Buffering', 'no');
   // res.setHeader('Access-Control-Allow-Origin','*');
   res.flushHeaders(); 
   let rangeType = req.query.range || "today";
