@@ -136,7 +136,6 @@ const GetIslemlerWatch = async (range = "today", isendtime = true) => {
   let items;
   async function initWatch(range, isendtime, pagename = "islemler") {
     items = await GetIslemlerList(range, isendtime);
-    console.log(items);
     InitTable(items);
     makeHesap(items);
     if (eventSource) {
