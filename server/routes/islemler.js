@@ -34,7 +34,7 @@ export const GetIslemlerList = async (req, res) => {
   );
   return res.json(datas);
 };
-export const GetIslemlerWatch = (req, res) => {
+export const GetIslemlerWatch = async (req, res) => {
   // SSE headers
   res.setHeader("Content-Type", "text/event-stream");
   res.setHeader("Cache-Control", "no-cache,no-transform");
@@ -73,4 +73,7 @@ export const GetIslemlerWatch = (req, res) => {
     clearInterval(ping);
     console.log("❌ SSE client disconnected");
   });
+
+  const result = await fetch("http://localhost:3002/botapi/vericek")
+  console.log(await result.text());
 };

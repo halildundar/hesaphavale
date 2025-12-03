@@ -10,12 +10,14 @@ import {
   GetIslemlerWatch,
   GetIslemlerList,
 } from "./routes/islemler.js";
+import { VerCekIzle } from "./routes/watchislemler.js";
 export const MainRoutes = (app) => {
   app.use("/kasalar", KasalarPage);
   app.use("/api/get-total", GetKasalar);
   app.use("/islemler", IslemlerPage);
   app.use("/api/get-islemler-list", GetIslemlerList);
   app.use("/api/get-islemler-watch", GetIslemlerWatch);
+  app.use("/api/watch", VerCekIzle);
   app.use("/", DashboardPage);
   return app.use("/", Router({ mergeParams: true }));
 };

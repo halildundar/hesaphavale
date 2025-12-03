@@ -82,7 +82,7 @@ const InitTable = (islemler) => {
     console.log(findedIslem);
     findedIslem = {
       "Ref ID": findedIslem.subReferenceKey,
-       "TrXId": findedIslem.otherTrxId,
+      TrXId: findedIslem.otherTrxId,
       "Talep Tarih": DateActivityToTableTime(findedIslem.sentDateTime),
       "Onay Tarih": DateActivityToTableTime(findedIslem.activityDateTime),
       Tedarikçi: findedIslem.accountBankName,
@@ -95,8 +95,7 @@ const InitTable = (islemler) => {
       Komisyon: findedIslem.feeAmount + `(%${findedIslem.feeRate})`,
       "User Name": findedIslem.ownerUserName,
       "User No": findedIslem.ownerUserNo,
-      "Gönd.Açıklama": findedIslem.senderDescription
-     
+      "Gönd.Açıklama": findedIslem.senderDescription,
     };
     $("body").append(popStrRand({ veri: findedIslem }));
     $(".popveri .btn-popvericls").on("click", function () {
@@ -137,6 +136,7 @@ const GetIslemlerWatch = async (range = "today", isendtime = true) => {
   let items;
   async function initWatch(range, isendtime, pagename = "islemler") {
     items = await GetIslemlerList(range, isendtime);
+    console.log(items);
     InitTable(items);
     makeHesap(items);
     if (eventSource) {
@@ -237,7 +237,42 @@ const GetIslemlerList = async (range = "today", isendtime = true) => {
   });
   return result;
 };
+/**************Veri Çek İzle********** */
 
+const WatchTime = () => {
+  let eventSource = new EventSource("/api/watch");
+  let src$ = fromEvent(eventSource, "message").pipe(
+    map((e) => JSON.parse(e.data))
+  );
+  src$.subscribe((result) => {
+    const { type, data } = result;
+    let stringTime = "Err";
+    if (!!data && !!data.time) {
+      let d = new Date(data.time);
+
+      let pad = (n) => ("0" + n).slice(-2);
+
+      stringTime =
+        pad(d.getDate()) +
+        "." +
+        pad(d.getMonth() + 1) +
+        "." +
+        d.getFullYear() +
+        " " +
+        pad(d.getHours()) +
+        ":" +
+        pad(d.getMinutes()) +
+        ":" +
+        pad(d.getSeconds());
+    }
+    if(!!type){
+ $(".refresh-time").html(stringTime);
+    }
+   
+  });
+};
+/**************İnit********** */
 export default async function () {
   GetIslemlerWatch("today", true);
+  WatchTime();
 }

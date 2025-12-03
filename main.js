@@ -12,7 +12,7 @@ import {
   Json,
   DigitFract,
 } from "./server/genel/helpers.js";
-import {MainRoutes} from "./server/routes.js";
+import { MainRoutes } from "./server/routes.js";
 import bodyParser from "body-parser";
 import methodOverride from "method-override";
 import cookieParser from "cookie-parser";
@@ -48,7 +48,7 @@ app.engine(
 );
 app.set("view engine", ".hbs");
 app.set("views", `${process.cwd()}/views`);
-console.log(process.cwd())
+console.log(process.cwd());
 app.use(express.static("dist"));
 app.use(
   bodyParser.urlencoded({
@@ -64,7 +64,6 @@ app.use(methodOverride("_method"));
 app.use(passport.initialize());
 app.use(passport.session());
 MainRoutes(app);
-
 
 app.listen(PORT, () => {
   console.log(`Server is starting at ${PORT}`);
