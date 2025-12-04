@@ -10,14 +10,21 @@ export const KasalarPage = (req, res) => {
     route: "/kasalar",
   });
 };
-
+const VeriCek = async ()=>{
+  const res = await fetch("http://localhost:3002/botapi/vericek");
+  const result = await res.text();
+  return result
+}
 export const GetKasalar = async (req, res) => {
+  
   let db = CRUD("hesaphavale", "islemler");
   let rangeType = req.query.range || "yesterday";
   let endDate = req.query.isendtime;
-  console.log(rangeType, endDate);
-  if (!rangeType) return res.status(400).send("Missing range param");
 
+  if (!rangeType) return res.status(400).send("Missing range param");
+  if(rangeType === "today" || rangeType === "thisWeek" || rangeType === "thisMonth"){
+    await VeriCek();
+  }
   const range = getDateRange(rangeType, "Europe/Istanbul");
   let filter = {
     $gte: range.trStartNoOffset,

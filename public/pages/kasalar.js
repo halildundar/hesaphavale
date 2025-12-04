@@ -81,6 +81,38 @@ const MakeTables = (kasalar) => {
     $(".grdarea").append(kasaStrRand({ ...kasa }));
   }
 };
+const WatchTime = () => {
+  let eventSource = new EventSource("/api/watch");
+  let src$ = fromEvent(eventSource, "message").pipe(
+    map((e) => JSON.parse(e.data))
+  );
+  src$.subscribe((result) => {
+    const { type, data } = result;
+    let stringTime = "Err";
+    if (!!data && !!data.time) {
+      let d = new Date(data.time);
+
+      let pad = (n) => ("0" + n).slice(-2);
+
+      stringTime =
+        pad(d.getDate()) +
+        "." +
+        pad(d.getMonth() + 1) +
+        "." +
+        d.getFullYear() +
+        " " +
+        pad(d.getHours()) +
+        ":" +
+        pad(d.getMinutes()) +
+        ":" +
+        pad(d.getSeconds());
+    }
+    if(!!type){
+ $(".refresh-time").html(stringTime);
+    }
+   
+  });
+};
 export default async function () {
   // GetIslemlerWatch("today", true);
   console.log("kasalar");
@@ -110,4 +142,5 @@ export default async function () {
     }, 300);
   });
   $(`.btn[data-ur='today']`).trigger("click");
+  WatchTime();
 }
