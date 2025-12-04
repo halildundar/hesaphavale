@@ -87,7 +87,6 @@ const WatchTime = () => {
     map((e) => JSON.parse(e.data))
   );
   src$.subscribe((result) => {
-    console.log(result)
     const { type, data } = result;
     let stringTime = "Err";
     if (!!data && !!data.time) {
