@@ -51,8 +51,8 @@ const MakeTables = (kasalar) => {
                         <td >Toplam Tutar</td>
                     </tr>
                     <tr class="w-1/2 font-normal">
-                        <th class="text-start text-orange-500">{{totalDeposit}}</th>
-                          <th class="text-start text-red-500">{{totalWithdraw}}</th>
+                        <th class="text-start text-orange-500">₺{{totalDeposit}}</th>
+                          <th class="text-start text-red-500">₺{{totalWithdraw}}</th>
                         <th class="text-start" >₺{{totalBalance}}</th>
                     </tr>
                 </table>
