@@ -63,12 +63,12 @@ const MakeTables = (kasalar) => {
             </div>
         </a>`);
 
-  kasalar = kasalar.sort((a, b) =>
-    a.name.toLocaleLowerCase() < b.name.toLocaleLowerCase() &&
-    !(a.name === "ANAKASA" )
-      ? -1
-      : 1
-  );
+  kasalar = kasalar.sort((a, b) => {
+    if (a.name === "ANAKASA") return -1; // a ilk sıraya
+    if (b.name === "ANAKASA") return 1;
+    return a.name.toLocaleLowerCase() < b.name.toLocaleLowerCase();
+  });
+
   $(".grdarea").html("");
   for (let i = 0; i < kasalar.length; i++) {
     let kasa = kasalar[i];
