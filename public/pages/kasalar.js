@@ -65,7 +65,7 @@ const MakeTables = (kasalar) => {
 
   kasalar = kasalar.sort((a, b) =>
     a.name.toLocaleLowerCase() < b.name.toLocaleLowerCase() &&
-    !(a.name === "ANAKASA" || b.name === "ANAKASA")
+    !(a.name === "ANAKASA" )
       ? -1
       : 1
   );
