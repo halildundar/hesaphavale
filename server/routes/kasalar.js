@@ -167,10 +167,12 @@ export const GetKasalar = async (req, res) => {
               },
             },
           ],
-            anakasa: [
+          anakasa: [
             {
               $group: {
-                _id: "$accountType",
+                _id: {
+                  accountType: ["bank","creditcard"],
+                },
                 totalDeposit: { $sum: "$depositAmount" },
                 totalWithdraw: { $sum: "$withdrawAmount" },
                 totalNet: { $sum: "$netAmount" },
@@ -201,7 +203,7 @@ export const GetKasalar = async (req, res) => {
       {
         $project: {
           sonuc: {
-            $concatArrays: ["$anakasa","$bankalar", "$firmalar"],
+            $concatArrays: ["$anakasa", "$bankalar", "$firmalar"],
           },
         },
       },

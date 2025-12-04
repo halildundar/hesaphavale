@@ -137,7 +137,6 @@ export default async function () {
     $(".spinner").show();
     setTimeout(async () => {
       kasalar = await GetKasalar(range);
-      console.log(kasalar);
       if (kasalar.length > 0) {
         $(".grdarea").show();
         $(".spinner").hide();
