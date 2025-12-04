@@ -87,6 +87,7 @@ const WatchTime = () => {
     map((e) => JSON.parse(e.data))
   );
   src$.subscribe((result) => {
+    console.log(result)
     const { type, data } = result;
     let stringTime = "Err";
     if (!!data && !!data.time) {
@@ -108,7 +109,7 @@ const WatchTime = () => {
         pad(d.getSeconds());
     }
     if(!!type){
- $(".refresh-time").html(stringTime);
+      $(".refresh-time").html(stringTime);
     }
    
   });
