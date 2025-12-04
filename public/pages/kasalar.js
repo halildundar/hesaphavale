@@ -37,7 +37,12 @@ const MakeTables = (kasalar) => {
                 <table class="w-full text-[0.9rem] 2xl:text-[1rem]">
                     <tr class="w-1/2 text-gray-500">
                         <td>Komisyon</td>
-                        <th class="{{textcolor}}  text-start">%{{feeRate}}</th>
+                        <th class="{{textcolor}}  text-start">
+                          {{#IsEq name 'ANAKASA'}}
+                          {{else}}
+                          %{{feeRate}}
+                          {{/IsEq}}
+                        </th>
                         <th class="{{textcolor}}  text-start">₺{{totalFee}}</th>
                     </tr>
                     <tr class="w-1/2 text-gray-500">
@@ -59,7 +64,10 @@ const MakeTables = (kasalar) => {
         </a>`);
 
   kasalar = kasalar.sort((a, b) =>
-    a.name.toLocaleLowerCase() < b.name.toLocaleLowerCase() ? -1 : 1
+    a.name.toLocaleLowerCase() < b.name.toLocaleLowerCase() &&
+    !(a.name === "ANAKASA" || b.name === "ANAKASA")
+      ? -1
+      : 1
   );
   $(".grdarea").html("");
   for (let i = 0; i < kasalar.length; i++) {
@@ -73,6 +81,10 @@ const MakeTables = (kasalar) => {
       kasa["textcolor"] = "text-green-600";
       kasa["bgcolor"] = "bg-green-600";
       kasa["lowbgcolor"] = "bg-green-200";
+    } else if (kasa.type === "Anakasa") {
+      kasa["textcolor"] = "text-purple-600";
+      kasa["bgcolor"] = "bg-purple-600";
+      kasa["lowbgcolor"] = "bg-purple-200";
     } else {
       kasa["textcolor"] = "text-blue-600";
       kasa["bgcolor"] = "bg-blue-600";
@@ -107,10 +119,9 @@ const WatchTime = () => {
         ":" +
         pad(d.getSeconds());
     }
-    if(!!type){
+    if (!!type) {
       $(".refresh-time").html(stringTime);
     }
-   
   });
 };
 export default async function () {
@@ -126,7 +137,7 @@ export default async function () {
     $(".spinner").show();
     setTimeout(async () => {
       kasalar = await GetKasalar(range);
-      // console.log(kasalar);
+      console.log(kasalar);
       if (kasalar.length > 0) {
         $(".grdarea").show();
         $(".spinner").hide();
